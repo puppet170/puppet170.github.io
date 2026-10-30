@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>170PUPPET — Photography</title>
+    <meta name="description" content="170PUPPET 摄影作品集" />
+    <meta name="theme-color" content="#f5f5f0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 固定顶部导航：只有标题，点击回到顶端 -->
+    <header class="site-header">
+      <a class="site-title" href="#top" id="top">170PUPPET</a>
+    </header>
+
+    <main class="gallery-wrap">
+      <!-- 画廊由 script.js 读取 data.json 后填充 -->
+      <div class="gallery" id="gallery"></div>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year">2026</span> 170PUPPET</span>
+      <span>All photographs are copyrighted</span>
+    </footer>
+
+    <!-- 只读灯箱 -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="作品大图">
+      <button class="lightbox-close" id="lightbox-close" type="button">关闭</button>
+      <button class="lightbox-prev" id="lightbox-prev" type="button">← 上一张</button>
+      <img id="lightbox-img" src="" alt="" />
+      <button class="lightbox-next" id="lightbox-next" type="button">下一张 →</button>
+      <div class="lightbox-count" id="lightbox-count"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "title": "170PUPPET",
+  "updated": "2026-10-30",
+  "photos": [
+    { "src": "images/01.svg", "name": "01.svg", "w": 1200, "h": 1500 },
+    { "src": "images/02.svg", "name": "02.svg", "w": 1600, "h": 1067 },
+    { "src": "images/03.svg", "name": "03.svg", "w": 1200, "h": 1500 },
+    { "src": "images/04.svg", "name": "04.svg", "w": 1400, "h": 1400 },
+    { "src": "images/05.svg", "name": "05.svg", "w": 1600, "h": 1067 },
+    { "src": "images/06.svg", "name": "06.svg", "w": 1200, "h": 1600 },
+    { "src": "images/07.svg", "name": "07.svg", "w": 1600, "h": 1000 },
+    { "src": "images/08.svg", "name": "08.svg", "w": 1200, "h": 1200 }
+  ]
+}
