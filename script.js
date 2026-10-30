@@ -22,12 +22,8 @@
   };
 
   var gallery = document.getElementById("gallery");
-  var lightbox = document.getElementById("lightbox");
-  var lbImg = document.getElementById("lightbox-img");
-  var lbCount = document.getElementById("lightbox-count");
 
   var photos = [];
-  var current = 0;
 
   /* ---------- 数据加载 ---------- */
 
@@ -73,11 +69,8 @@
       var w = (item && item.w) || 0;
       var h = (item && item.h) || 0;
 
-      var tile = document.createElement("a");
+      var tile = document.createElement("figure");
       tile.className = "tile";
-      tile.href = "#";
-      tile.setAttribute("role", "button");
-      tile.setAttribute("aria-label", "查看第 " + (i + 1) + " 张作品");
       tile.dataset.index = String(i);
 
       var img = document.createElement("img");
@@ -97,12 +90,16 @@
         scheduleLayout();
       });
 
-      tile.appendChild(img);
-
-      tile.addEventListener("click", function (e) {
+      // 防随手保存：禁止拖拽图片、屏蔽图片上的右键菜单
+      img.draggable = false;
+      img.addEventListener("dragstart", function (e) {
         e.preventDefault();
-        openLightbox(i);
       });
+      img.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+
+      tile.appendChild(img);
 
       frag.appendChild(tile);
     });
@@ -152,66 +149,6 @@
       var span = Math.max(1, Math.ceil((h + gap) / rowUnit));
       tiles[j].style.gridRowEnd = "span " + span;
     }
-  }
-
-  /* ---------- 灯箱 ---------- */
-
-  function openLightbox(index) {
-    if (!lightbox || !photos.length) return;
-    current = (index + photos.length) % photos.length;
-    paintLightbox(true);
-    lightbox.classList.add("is-open");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove("is-open");
-    document.body.style.overflow = "";
-  }
-
-  function step(delta) {
-    if (!photos.length) return;
-    current = (current + delta + photos.length) % photos.length;
-    paintLightbox(false);
-  }
-
-  function paintLightbox(animate) {
-    var item = photos[current];
-    var src = typeof item === "string" ? item : item.src;
-    if (animate) lbImg.style.opacity = "0";
-    lbImg.onload = function () {
-      lbImg.style.opacity = "1";
-    };
-    lbImg.src = src;
-    lbImg.style.transition = "opacity .3s ease";
-    if (lbCount) {
-      var n = photos.length;
-      lbCount.textContent =
-        String(current + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0");
-    }
-  }
-
-  if (lightbox) {
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
-    var btnClose = document.getElementById("lightbox-close");
-    var btnPrev = document.getElementById("lightbox-prev");
-    var btnNext = document.getElementById("lightbox-next");
-    if (btnClose) btnClose.addEventListener("click", closeLightbox);
-    if (btnPrev) btnPrev.addEventListener("click", function () {
-      step(-1);
-    });
-    if (btnNext) btnNext.addEventListener("click", function () {
-      step(1);
-    });
-    document.addEventListener("keydown", function (e) {
-      if (!lightbox.classList.contains("is-open")) return;
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowLeft") step(-1);
-      if (e.key === "ArrowRight") step(1);
-    });
   }
 
   /* ---------- 导航：滚动阴影 + 标题回顶 ---------- */
