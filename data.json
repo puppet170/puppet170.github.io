@@ -1,96 +1,96 @@
 {
   "title": "170PUPPET",
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "photos": [
     {
-      "src": "images/p01.JPG",
-      "name": "p01.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p02.JPG",
-      "name": "p02.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p03.JPG",
-      "name": "p03.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p04.JPG",
-      "name": "p04.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p05.JPG",
-      "name": "p05.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p06.JPG",
-      "name": "p06.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p07.JPG",
-      "name": "p07.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p08.JPG",
-      "name": "p08.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p09.JPG",
-      "name": "p09.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p10.JPG",
-      "name": "p10.JPG",
-      "w": 6192,
-      "h": 4128
-    },
-    {
-      "src": "images/p11.JPG",
-      "name": "p11.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p12.JPG",
-      "name": "p12.JPG",
-      "w": 4128,
-      "h": 6192
-    },
-    {
-      "src": "images/p13.JPG",
-      "name": "p13.JPG",
-      "w": 6192,
-      "h": 4128
+      "src": "images/p15.JPG",
+      "name": "p15.JPG",
+      "w": 1800,
+      "h": 1200
     },
     {
       "src": "images/p14.JPG",
       "name": "p14.JPG",
-      "w": 6192,
-      "h": 4128
+      "w": 1800,
+      "h": 1200
     },
     {
-      "src": "images/p15.JPG",
-      "name": "p15.JPG",
-      "w": 6192,
-      "h": 4128
+      "src": "images/p13.JPG",
+      "name": "p13.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p12.JPG",
+      "name": "p12.JPG",
+      "w": 1200,
+      "h": 1800
+    },
+    {
+      "src": "images/p11.JPG",
+      "name": "p11.JPG",
+      "w": 1200,
+      "h": 1800
+    },
+    {
+      "src": "images/p10.JPG",
+      "name": "p10.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p09.JPG",
+      "name": "p09.JPG",
+      "w": 1200,
+      "h": 1800
+    },
+    {
+      "src": "images/p08.JPG",
+      "name": "p08.JPG",
+      "w": 1200,
+      "h": 1800
+    },
+    {
+      "src": "images/p07.JPG",
+      "name": "p07.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p06.JPG",
+      "name": "p06.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p05.JPG",
+      "name": "p05.JPG",
+      "w": 1200,
+      "h": 1800
+    },
+    {
+      "src": "images/p04.JPG",
+      "name": "p04.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p03.JPG",
+      "name": "p03.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p02.JPG",
+      "name": "p02.JPG",
+      "w": 1800,
+      "h": 1200
+    },
+    {
+      "src": "images/p01.JPG",
+      "name": "p01.JPG",
+      "w": 1200,
+      "h": 1800
     }
   ]
 }

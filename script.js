@@ -49,6 +49,27 @@
 
   /* ---------- 渲染 ---------- */
 
+  // 懒加载：首屏前几张立即请求，其余等滑动到附近才下载（省带宽）
+  var EAGER_COUNT = 5;
+  var lazyObserver = null;
+
+  if ("IntersectionObserver" in window) {
+    lazyObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute("data-src");
+          }
+          lazyObserver.unobserve(img);
+        });
+      },
+      { root: null, rootMargin: "200px 0px", threshold: 0.01 }
+    );
+  }
+
   function render(list) {
     photos = list;
     gallery.innerHTML = "";
@@ -74,9 +95,7 @@
       tile.dataset.index = String(i);
 
       var img = document.createElement("img");
-      img.src = src;
       img.alt = (item && item.name) || "作品 " + (i + 1);
-      img.loading = i < 8 ? "eager" : "lazy";
       img.decoding = "async";
       // 预留宽高比，避免加载时布局跳动
       if (w && h) {
@@ -99,12 +118,29 @@
         e.preventDefault();
       });
 
+      // 首屏几张立即请求；其余只挂 data-src，滚到附近才真正下载
+      if (i < EAGER_COUNT || !lazyObserver) {
+        img.src = src;
+        img.loading = "eager";
+        img.setAttribute("fetchpriority", i === 0 ? "high" : "auto");
+      } else {
+        img.dataset.src = src;
+        img.loading = "lazy";
+        img.setAttribute("fetchpriority", "low");
+      }
+
       tile.appendChild(img);
 
       frag.appendChild(tile);
     });
 
     gallery.appendChild(frag);
+
+    if (lazyObserver) {
+      var pending = gallery.querySelectorAll("img[data-src]");
+      for (var k = 0; k < pending.length; k++) lazyObserver.observe(pending[k]);
+    }
+
     scheduleLayout();
   }
 
